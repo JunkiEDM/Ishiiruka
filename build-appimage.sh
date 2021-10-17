@@ -2,7 +2,7 @@
 # build-online-appimage.sh
 
 ZSYNC_STRING="gh-releases-zsync|jlambert360|FPM-AppImage|latest|Faster_Project_Plus-x86-64.AppImage.zsync"
-APPIMAGE_STRING="Faster_Project_Plus-x86-64.AppImage"
+APPIMAGE_STRING="Dolphin-Ishiiruka-x86-64.AppImage"
 
 LINUXDEPLOY_PATH="https://github.com/linuxdeploy/linuxdeploy/releases/download/continuous"
 LINUXDEPLOY_FILE="linuxdeploy-x86_64.AppImage"
@@ -40,7 +40,7 @@ mkdir -p AppDir
 ./Tools/linuxdeploy \
 	--appdir=./AppDir \
 	-e ./build/Binaries/ishiiruka \
-	-d ./Data/faster-project-plus.desktop \
+	-d ./Data/ishiiruka.desktop \
 	-i ./Data/ishiiruka.png
 
 # Add the Sys dir to the AppDir for packaging
@@ -54,11 +54,11 @@ rm -f ${APPIMAGE_STRING}
 cp ./Tools/appimageupdatetool ./AppDir/usr/bin/
 
 # Bake an AppImage with the update metadata
-export VERSION="2.28"
+export VERSION="${GITHUB_RUN_ID}"
 UPDATE_INFORMATION="${ZSYNC_STRING}" \
 	./Tools/linuxdeploy-update-plugin --appdir=./AppDir/
 
 
-mv Faster_Project_Plus-$VERSION-x86_64.AppImage Faster_Project_Plus-x86-64.AppImage
-mv Faster_Project_Plus-$VERSION-x86_64.AppImage.zsync Faster_Project_Plus-x86-64.AppImage.zsync
+mv Dolphin-Ishiiruka-$VERSION-x86_64.AppImage Dolphin-Ishiiruka-x86-64.AppImage
+mv Dolphin-Ishiiruka-$VERSION-x86_64.AppImage.zsync Dolphin-Ishiiruka-x86-64.AppImage.zsync
 
