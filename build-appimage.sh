@@ -55,8 +55,8 @@ cp ./Tools/appimageupdatetool ./AppDir/usr/bin/
 
 # Bake an AppImage with the update metadata
 export VERSION="${GITHUB_RUN_ID}"
-UPDATE_INFORMATION="${ZSYNC_STRING}" \
-	./Tools/linuxdeploy-update-plugin --appdir=./AppDir/
+# UPDATE_INFORMATION="${ZSYNC_STRING}" \
+# 	./Tools/linuxdeploy-update-plugin --appdir=./AppDir/
 
 
 mv Dolphin-Ishiiruka-$VERSION-x86_64.AppImage Dolphin-Ishiiruka-x86-64.AppImage
