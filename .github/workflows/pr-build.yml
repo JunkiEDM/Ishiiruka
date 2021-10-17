@@ -84,7 +84,6 @@ jobs:
         run: |
           xcopy /E /V /Y /I .\Data\User .\Binary\x64\User
           xcopy /E /V /Y /I .\Data\Sys .\Binary\x64\Sys
-          copy Changelog.txt .\Binary\x64\
           cd .\Binary\x64\
           mkdir Launcher
           rm -r Languages
